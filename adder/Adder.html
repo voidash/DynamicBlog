@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>Add your blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+//this is jquery
+var Increment = 0;
+$(document).ready(function() {
+
+
+    $('#add_more').click(function() {
+        $(this).before($("<div/>", {id: 'filediv'}).fadeIn('slow').append(
+                $("<input/>", {name: 'file[]', type: 'file', id: 'file'}),
+                $("<br/><br/>")
+                ));
+    });
+
+    $('body').on('change', '#file', function(){
+            if (this.files && this.files[0]) {
+                 Increment += 1;
+
+			           var z = Increment - 1;
+                var x = $(this).parent().find('#previewimg' + z).remove();
+                $(this).before("<div id='abcd"+ Increment +"' class='abcd'><img id='previewimg" + Increment + "' src=''/></div>");
+
+			    var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+
+			    $(this).hide();
+                $("#abcd"+Increment).append($("<input/>", { type:"button",id: 'DeleteButton',  value: 'Delete this file '+ this.value }).click(function() {
+                $(this).parent().parent().remove();
+                }));
+            }
+        });
+
+//To preview image
+    function imageIsLoaded(e) {
+        $('#previewimg' + abc).attr('src', e.target.result);
+    };
+
+    $('#upload').click(function(e) {
+        var name = $(":file").val();
+        if (!name)
+        {
+            alert("First Image Must Be Selected");
+            e.preventDefault();
+        }
+    });
+});
+</script>
+</head>
+<body>
+  <!-- starting the form as assigned in project -->
+  <form action ="blogInsert.php" method="post" enctype="multipart/form-data" target="_blank">
+    <label for="title">Title</label>
+    <input type="text"  name="title" class="w3-input w3-animate-input" style="width:30%;"/>
+    <label for ="mainTag">Main tag</label>
+    <input type="text" name="mainTag" class="w3-input w3-animate-input" style="width:30%;"/>
+    <label for ="nodeTag">Node tag</label>
+    <input type="text" name="nodeTag" class="w3-input w3-animate-input" style="width:30%;"/>
+    <label for ="nodeTag">Other tags</label>
+    <input type="text" name="tags" class="w3-input w3-animate-input" style="width:30%;"/>
+     <label for="content">Add content</label>
+<br/>
+<br/>
+
+    <center><textarea name="content" rows="50" cols="100" >
+
+  </textarea></center>
+
+  Select added image
+  <div id="filediv">
+
+
+                   <input name="file[]" type="file" id="file"/></div><br/>
+
+                   <input type="button" id="add_more" class="upload" value="Add More Files"/>
+
+
+               <br/>
+               <br/>
+           </div>
+
+<input type="submit" value="Create Blog" />
+
+
+
+    </form>
+
+</body>
+</html>

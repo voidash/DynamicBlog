@@ -1,0 +1,80 @@
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#search").click(function(){
+        $("#box").slideToggle(0);
+    });
+});
+</script>
+<style>
+#box{display:none;}
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    text-align: center;
+}</style>
+<body>
+
+<div class="w3-container w3-center w3-card-4 ">
+
+  <div  class="w3-bar">
+<h1><b>Welcome to  Blog</b></h1>
+
+    <a href="#" class="w3-bar-item w3-button ">Home</a>
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+
+    <div class="w3-dropdown-hover w3-bar-block">
+      <button class="w3-button">keywords</button>
+      <div class="w3-dropdown-content w3-card-4">
+        <a href="#" class="w3-bar-item w3-button ">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      </div>
+
+    </div>
+<a href="#" id="search" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
+<div id="box" class="w3-card-4" style="height:100px;">
+  <form action="search.php">
+<input type="text" name="search" class="w3-input w3-bar-item" />
+<input type="submit" value="search" class="w3-button w3-bar-item"/>
+
+ </form>
+
+</div>
+  </div>
+</div>
+<!--this is body -->
+
+
+
+
+
+
+
+
+<!-- this is footer -->
+
+<footer>
+  <div class="w3-container" id="footer">
+    <div class="w3-right" style="margin-right:20%;">
+<i class="fa fa-facebook" style="font-size:60px;"></i>
+<i class="fa fa-twitter" style="font-size:60px;"></i>
+<i class="fa fa-pinterest" style="font-size:60px;"></i>
+<i class="fa fa-instagram"style="font-size:60px;"></i>
+</div>
+<div class="w3-left" style="margin-left:20%;"><h1>Ashish officially</h1></div>
+  </div>
+
+</footer>
+
+
+</body>
+</html>
